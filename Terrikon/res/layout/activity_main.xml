@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="6dp"
+    tools:context=".MainActivity" >
+
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                    <ListView
+        android:id="@+id/listViewNews"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        </ListView>
+
+				<GridView 
+				    android:id="@+id/gridMatches"
+			        android:layout_width="match_parent"
+			        android:layout_height="match_parent"
+			        android:numColumns="2"
+			        android:padding="@dimen/match_grid_padd_outer"
+			        android:horizontalSpacing="@dimen/match_grid_padd_outer"
+			        android:verticalSpacing="@dimen/match_grid_padd_outer"
+				    >
+				    
+				</GridView>
+                    
+            </FrameLayout>
+            </LinearLayout>
+    </TabHost>
+    
+
+</RelativeLayout>

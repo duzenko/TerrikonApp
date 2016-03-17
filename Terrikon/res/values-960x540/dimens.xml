@@ -1,0 +1,6 @@
+<resources>
+
+	<dimen name="match_grid_padd_inner">15dp</dimen>
+	<dimen name="match_grid_padd_outer">12dp</dimen>
+    
+</resources>

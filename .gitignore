@@ -1,0 +1,6 @@
+.metadata/
+*.classpath
+*.project
+Terrikon/.settings/
+Terrikon/bin/
+Terrikon/gen/
