@@ -132,6 +132,10 @@ public class CommentsLoader extends AsyncTask<String, Integer, Void> {
 	
 	@Override
 	protected Void doInBackground(String... params) {
+		if (url == null) {
+			System.out.println("null url in CommentsLoader");
+			return null;
+		}			
 		html = WebUtil.downloadHttp(url.replace("posts", "comments") + "/page/" + page);
 		if (html == null) {
 			System.out.println("null html in CommentsLoader");

@@ -94,9 +94,7 @@ public class MainActivity extends Activity {
 	};
 	
 	void openNewsPage(String url) {
-		/*Editor editor = Gl.sharedPreferences.edit();
-		editor.putString("lastUrl", url);
-		editor.commit();*/
+		System.out.println(url);
 		startActivity(new Intent(MainActivity.this, DetailedActivity.class).putExtra("url", url));		
 	}
 	

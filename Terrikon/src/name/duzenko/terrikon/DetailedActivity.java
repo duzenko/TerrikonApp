@@ -12,6 +12,7 @@ import name.duzenko.terrikon.logic.SwipeListener;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -65,28 +66,28 @@ public class DetailedActivity extends Activity {
         tabHost.addTab(tabSpec);
         
 		webView = (WebView) findViewById(R.id.webView);
-    	    gridPages = (GridView) findViewById(R.id.gridPages);
-    	    pagesAdapter = new PagesAdapter();
-    	    	
-    	    gridPages.setAdapter(pagesAdapter);
-            
-	        tabSpec = tabHost.newTabSpec("tag2");
-	        tabSpec.setIndicator(tabText);
-	        tabSpec.setContent(R.id.tab2);        
-	        tabHost.addTab(tabSpec);
-	        SwipeListener sl = new SwipeListener(tabHost);
-	        tabHost.setOnTouchListener(sl);
-	        tabHost.setOnTabChangedListener(new AnimatedTabHostListener(tabHost));
+		gridPages = (GridView) findViewById(R.id.gridPages);
+		pagesAdapter = new PagesAdapter();
 
-	        webView.setOnTouchListener(sl);
+		gridPages.setAdapter(pagesAdapter);
 
-	        listView = (ListView) findViewById(R.id.listView);
-	        listView.setOnTouchListener(sl);
-	        listView.setDividerHeight(9);
-			listView.setAdapter(adapter);
-			listView.setOnItemLongClickListener(commentClickListener);
+		tabSpec = tabHost.newTabSpec("tag2");
+		tabSpec.setIndicator(tabText);
+		tabSpec.setContent(R.id.tab2);
+		tabHost.addTab(tabSpec);
+		SwipeListener sl = new SwipeListener(tabHost);
+		tabHost.setOnTouchListener(sl);
+		tabHost.setOnTabChangedListener(new AnimatedTabHostListener(tabHost));
 
-		    webView.setHorizontalScrollBarEnabled(false);
+		webView.setOnTouchListener(sl);
+
+		listView = (ListView) findViewById(R.id.listView);
+		listView.setOnTouchListener(sl);
+		listView.setDividerHeight(9);
+		listView.setAdapter(adapter);
+		listView.setOnItemLongClickListener(commentClickListener);
+
+		webView.setHorizontalScrollBarEnabled(false);
         
 	    final float scale = getResources().getDisplayMetrics().xdpi;
 	    if (android.os.Build.VERSION.SDK_INT >= 14) 
@@ -100,8 +101,14 @@ public class DetailedActivity extends Activity {
 	WebViewClient webClient = new WebViewClient() {
 		
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
-			if (url.startsWith("http://terrikon.com/posts")) {
+			System.out.println(url);
+			if (url.startsWith("http://terrikon.com/posts")) { 
 				startActivity(new Intent(DetailedActivity.this, DetailedActivity.class).putExtra("url", url));		
+				return true;
+			}
+			if (url.startsWith("http://terrikon.oll.tv")) {
+				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+				startActivity(browserIntent);
 				return true;
 			}
 			return false;
