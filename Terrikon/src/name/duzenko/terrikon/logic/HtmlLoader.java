@@ -18,6 +18,7 @@ public class HtmlLoader extends AsyncTask<Void, Integer, Void> {
 	public HtmlLoader(DetailedActivity detailedActivity) {
 		this.detailedActivity = detailedActivity;
 		dialog = new ProgressDialog(this.detailedActivity);
+		dialog.setCancelable(false);
 	}
 
 	ProgressDialog dialog;
@@ -71,7 +72,10 @@ public class HtmlLoader extends AsyncTask<Void, Integer, Void> {
 				Toast.makeText(this.detailedActivity, "Нет интернета?", Toast.LENGTH_SHORT).show();
 			this.detailedActivity.finish();
 		}
-		dialog.dismiss();
+		try {
+			dialog.dismiss();
+		} catch (Exception e) {
+		}
 	}
 	
 }

@@ -87,11 +87,12 @@ public class DetailedActivity extends Activity {
 		listView.setAdapter(adapter);
 		listView.setOnItemLongClickListener(commentClickListener);
 
-		webView.setHorizontalScrollBarEnabled(false);
+//		webView.setHorizontalScrollBarEnabled(false);
         
 	    final float scale = getResources().getDisplayMetrics().xdpi;
 	    if (android.os.Build.VERSION.SDK_INT >= 14) 
 	    	webView.getSettings().setTextZoom((int) (30000/scale));
+	    webView.getSettings().setJavaScriptEnabled(true);
 	    webView.setWebViewClient(webClient);
 	    new HtmlLoader(this).execute();
 	    if (!online)
@@ -106,12 +107,12 @@ public class DetailedActivity extends Activity {
 				startActivity(new Intent(DetailedActivity.this, DetailedActivity.class).putExtra("url", url));		
 				return true;
 			}
-			if (url.startsWith("http://terrikon.oll.tv")) {
+//			if (url.startsWith("http://terrikon.oll.tv")) {
 				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 				startActivity(browserIntent);
 				return true;
-			}
-			return false;
+//			}
+//			return false;
 		};
 		
 	};
