@@ -36,14 +36,14 @@ public class HtmlLoader extends AsyncTask<Void, Integer, Void> {
 			divScore = "<div class=\"txt\">"; 
 	@Override
 	protected Void doInBackground(Void... params) {
-		data = WebUtil.downloadHttp(this.detailedActivity.url);
+		data = WebUtil.downloadHttp(this.detailedActivity.pageurl);
 		if (data == null)
 			return null;
 		if (this.detailedActivity.online) {
 			int i = data.indexOf("<a href=\"/comments/") + 10, j = data.indexOf("\">", i);
 			if (i > 10 && j > i) {
 				this.detailedActivity.commentsUrl = "http://terrikon.com/" + data.substring(i, j);
-				this.detailedActivity.new AwareCommentsLoader().execute();
+//				this.detailedActivity.new AwareCommentsLoader().execute();
 			}
 		}
 		int mainStart = data.indexOf(this.detailedActivity.online ? onlineMarkerStart : newsMarkerStart), tags = data.indexOf(newsMarkerTags)+1, 

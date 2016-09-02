@@ -2,12 +2,27 @@
 
     <item
         android:id="@+id/action_post"
-        android:showAsAction="always"
+        android:showAsAction="never"
         android:title="@string/action_post"/>
 
     <item
         android:id="@+id/action_refresh"
         android:showAsAction="never"
         android:title="@string/action_refresh"/>
+
+    <item
+        android:id="@+id/action_zoomin"
+        android:showAsAction="never"
+        android:title="@string/action_zoomin"/>
+
+    <item
+        android:id="@+id/action_zoomout"
+        android:showAsAction="never"
+        android:title="@string/action_zoomout"/>
+
+    <item
+        android:id="@+id/action_full"
+        android:showAsAction="never"
+        android:title="@string/action_full"/>
 
 </menu>

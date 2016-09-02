@@ -7,11 +7,14 @@
     <string name="there">Туда</string>
     <string name="title_activity_post">Добавление комментария</string>
     <string name="action_settings">Settings</string>
-    <string name="action_post">Комментировать</string>
+    <string name="action_post">Комментировать :(</string>
     <string name="hello_world">Hello world!</string>
     <string name="Post">Отправить</string>
     <string name="message">Ваш комментарий</string>
     <string name="password">Пароль</string>
     <string name="login">Ваш логин на Терриконе</string>
-
+    <string name="action_zoomin">Увеличить</string>
+    <string name="action_zoomout">Уменьшить</string>
+    <string name="action_full">Перейти на сайт</string>
+    
 </resources>
